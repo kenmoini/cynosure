@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Role;
 use App\User;
+use App\CynosureSetting;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -63,10 +65,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        //Look up default role, attach to new user
+        $defaultRoleSlug = CynosureSetting::where('key', 'global.registration_default_role')->first();
+
+        $role = Rule::where('slug', $defaultRoleSlug->value)->first();
+
+        $user->roles()->attach($role);
+
+        return $user;
     }
 }

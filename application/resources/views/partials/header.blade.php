@@ -31,6 +31,7 @@
     <link href="/now-ui-dashboard-master/assets/css/now-ui-dashboard.css?v=1.2.0" rel="stylesheet" />
     <link href="/now-ui-dashboard-master/assets/css/bootstrap-switch.min.css?v=1.2.0" rel="stylesheet" />
     <link href="/now-ui-dashboard-master/assets/css/nouislider.min.css?v=1.2.0" rel="stylesheet" />
+    <link href="/vendor/fontawesome-free-5.9.0-web/css/all.min.css" rel="stylesheet" />
 
     <style type="text/css">
     .clusterSwitcher div.dropdown, .namespaceSwitcher div.dropdown {
@@ -55,3 +56,4 @@
 
   </head>
   <body>
+      @include('partials.header-frame')

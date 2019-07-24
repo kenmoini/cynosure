@@ -1,4 +1,4 @@
-
+    @include('partials.footer-frame')
 
     <!--   Core JS Files   -->
     <script src="/now-ui-dashboard-master/assets/js/core/jquery.min.js" type="text/javascript"></script>
@@ -16,6 +16,11 @@
 
     <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
     <script src="/now-ui-dashboard-master/assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
+    <script>
+      $(document).ready(function(){
+          $('.dropdown-toggle').dropdown()
+      });
+    </script>
 
     @yield('footer-js')
   </body>

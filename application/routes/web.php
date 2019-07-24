@@ -21,11 +21,29 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 
 Route::name('admin.')->prefix('admin')->group(function () {
-    Route::get('users', function () {
-        // Route assigned name "admin.users"...
-    })->name('users')->middleware('auth');
 
     Route::get('dashboard', function() {
         return view('app');
     })->name('dashboard')->middleware('auth');
+
+    Route::get('resources', function() {
+        return view('app');
+    })->name('resources')->middleware('auth');
+
+    Route::get('compass/panel', function() {
+        return view('app');
+    })->name('compass.panel')->middleware('auth');
+
+    Route::get('cynosure/configuration', function() {
+        return view('app');
+    })->name('cynosure.configuration')->middleware('auth');
+
+    //
+    Route::resource('roles', 'RoleController');
+    Route::resource('users', 'UserController');
+    Route::resource('clusters', 'ClusterController');
+    Route::resource('organizations', 'OrganizationController');
+    Route::resource('groups', 'GroupController');
+    //Route::resource('cynosure_settings', 'CynosureSettingController');
+
 });
