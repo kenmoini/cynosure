@@ -6,10 +6,12 @@ use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Organization extends Model
 {
     use HasSlug;
+    use SoftDeletes;
     
     /**
      * Get the options for generating the slug.

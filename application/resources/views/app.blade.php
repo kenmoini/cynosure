@@ -1,5 +1,8 @@
 @extends('templates.master')
 
+@section('title', 'Dashboard')
+@section('active_nav', 'dashboard')
+
 @section('content')
 
 

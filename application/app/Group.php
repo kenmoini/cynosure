@@ -6,10 +6,12 @@ use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Group extends Model
 {
     use HasSlug;
+    use SoftDeletes;
     
     /**
      * Get the options for generating the slug.
@@ -30,7 +32,17 @@ class Group extends Model
     {
         return 'slug';
     }
-    
+
+    protected $fillable = [
+        'name',
+        'slug',
+        'description',
+        'owner_id'
+    ];
+
+    public function organizations() {
+        return $this->belongsToMany('App\Organization');
+    }
 
     public function users()
     {

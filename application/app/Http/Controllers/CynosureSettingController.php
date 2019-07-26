@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CynosureSetting;
 use Illuminate\Http\Request;
 
 class CynosureSettingController extends Controller
@@ -13,7 +14,9 @@ class CynosureSettingController extends Controller
      */
     public function index()
     {
-        //
+        $settings = CynosureSetting::all();
+
+        return view('system.cynosure_settings.edit-settings', compact('settings'));
     }
 
     /**

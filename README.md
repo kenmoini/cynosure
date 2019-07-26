@@ -7,12 +7,21 @@ Don't bother looking for a while, it's probably still shit and quickly done.
 
 What is Cynosure?  Cynosure is a Kubernetes DevOps Dashboard, meaning operators can manage and developers and deploy as first-class citizens.  No longer are you a slave to kubectl and pokey-proxies.
 
-## Functions
+## Primary Targeted Functions
 
 - **Cluster/Context Multiplexing** - Connect one Cynosure Dash to multiple Kubernetes clusters.
 - **Namespace Switching** - Don't deploy to default by accident again...
 - **Running of JSON/YAML** - Switch, drop, and go.  Syntax validation at some point in the future.
 - **Easy creation of K8s objects** - Deploy a pod, create a service, and set an ingress all without any configuration.
+
+## What works (at least mostly)
+
+- Core - Roles (needs show resource maybe but I don't see a point)
+- Core - Organizations (needs show resource maybe but I don't see a point)
+- Core - Groups (needs show resource maybe but I don't see a point)
+- Core - Users (needs show resource for profile I guess)
+- Core - Settings (weird resource methods, don't look)
+- Core - Cluster Management
 
 ### Planned
 
@@ -31,6 +40,8 @@ $ cd application
 $ cp .env.example .env
 $ touch cynosure.sqlite
 $ composer install
+$ npm install
+$ npm run dev
 $ php artisan key:generate
 $ php artisan cache:clear
 $ php artisan migrate

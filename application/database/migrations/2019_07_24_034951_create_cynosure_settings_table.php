@@ -19,6 +19,7 @@ class CreateCynosureSettingsTable extends Migration
             $table->string('key')->unique();
             $table->string('value');
             $table->string('system_default');
+            $table->string('seting_type'); //text, textbox, select, multi-select, checkbox-boolean, tinymce
             $table->text('description');
             $table->timestamps();
             $table->softDeletes();

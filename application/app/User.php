@@ -59,4 +59,6 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Role');
     }
+
+    //TODO: Search to see if hasOneThrough will do user->org() and user->clusters()?
 }

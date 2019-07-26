@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     
-    <title>{{ config('app.name', 'Cynosure') }}</title>
+    <title>{{ config('app.name', 'Cynosure') }} - @yield('title')</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
@@ -22,10 +22,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
-    <!--     Fonts and icons     -->
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <!--
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-
+    -->
     <!-- CSS Files -->
     <link href="/now-ui-dashboard-master/assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/now-ui-dashboard-master/assets/css/now-ui-dashboard.css?v=1.2.0" rel="stylesheet" />
@@ -49,6 +52,16 @@
     }
     .sidebar .nav, .off-canvas-sidebar .nav {
         margin-top:0;
+    }
+    .sidebar .nav li > a, .off-canvas-sidebar .nav li > a {
+        border-radius:0;
+    }
+    #content-body {
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .form-control {
+        border-radius:4px;
+        border:1px solid #aeaeae;
     }
     </style>
 

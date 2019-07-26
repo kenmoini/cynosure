@@ -13,6 +13,34 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
+            @php
+              $dashboard_style = $applications_style = $networking_style = $storage_style = $resources_style = $compass_style = $cynosure_config_style = '';
+              if (trim($__env->yieldContent('active_nav'))) {
+                switch ($__env->yieldContent('active_nav')) {
+                  case "dashboard":
+                    $dashboard_style = 'active';
+                  break;
+                  case "applications":
+                    $applications_style = 'active';
+                  break;
+                  case "networking":
+                    $networking_style = 'active';
+                  break;
+                  case "storage":
+                    $storage_style = 'active';
+                  break;
+                  case "resources":
+                    $resources_style = 'active';
+                  break;
+                  case "compass":
+                    $compass_style = 'active';
+                  break;
+                  case "cynosure_config":
+                    $cynosure_config_style = 'active';
+                  break;
+                }
+              }
+            @endphp
           <li class="clusterSwitcher">
             <div class="btn-group dropdown">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -35,7 +63,7 @@
                 </div>
             </div>
           </li>
-          <li class="active ">
+          <li class="{{ $dashboard_style }}">
             <a href="{{ route('admin.dashboard') }}">
               <i class="fa fa-paper-plane"></i>
               <p>Dashboard</p>
@@ -71,7 +99,7 @@
               <p>Compass - Helm Ops</p>
             </a>
           </li>
-          <li>
+          <li class="{{ $cynosure_config_style }}">
             <a href="{{ route('admin.cynosure.configuration') }}">
               <i class="fa fa-wrench"></i>
               <p>Cynosure Configuration</p>
@@ -92,7 +120,18 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#">Dashboard</a>
+            <!--
+            <form class="navbar-brand">
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="now-ui-icons ui-1_zoom-bold"></i>
+                  </div>
+                </div>
+              </div>
+            </form>
+            -->
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>

@@ -1,9 +1,12 @@
 @extends('templates.master')
 
+@section('title', 'Cynosure Organizations - Create')
+@section('active_nav', 'cynosure_config')
+
 @section('content')
 <div class="panel-header panel-header-sm">
 </div>
-<div class="content">
+<div class="content" id="content-body">
     <div class="row">
         <div class="col-md-12">
             <div class="card">

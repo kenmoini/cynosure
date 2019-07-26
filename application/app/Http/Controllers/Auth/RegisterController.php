@@ -70,14 +70,20 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        
+        //Was a role specified?
+        if (isset($data['roles'])) {
+            $user->roles()->sync($data['role']);
+        }
+        //Or should we apply the default role?
+        else {
+            //Look up default role, attach to new user
+            $defaultRoleSlug = CynosureSetting::where('key', 'global.registration_default_role')->first();
 
-        //Look up default role, attach to new user
-        $defaultRoleSlug = CynosureSetting::where('key', 'global.registration_default_role')->first();
+            $role = Role::where('slug', $defaultRoleSlug->value)->first();
 
-        $role = Rule::where('slug', $defaultRoleSlug->value)->first();
-
-        $user->roles()->attach($role);
-
+            $user->roles()->attach($role);
+        }
         return $user;
     }
 }

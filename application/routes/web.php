@@ -34,9 +34,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
         return view('app');
     })->name('compass.panel')->middleware('auth');
 
-    Route::get('cynosure/configuration', function() {
-        return view('app');
-    })->name('cynosure.configuration')->middleware('auth');
+    Route::get('cynosure/configuration', 'CynosureConfigurationController@index')->name('cynosure.configuration')->middleware('auth');
 
     //
     Route::resource('roles', 'RoleController');
@@ -44,6 +42,6 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::resource('clusters', 'ClusterController');
     Route::resource('organizations', 'OrganizationController');
     Route::resource('groups', 'GroupController');
-    //Route::resource('cynosure_settings', 'CynosureSettingController');
+    Route::resource('cynosure_settings', 'CynosureSettingController');
 
 });
