@@ -17,10 +17,12 @@ class CreateCynosureSettingsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('key')->unique();
-            $table->string('value');
-            $table->string('system_default');
-            $table->string('seting_type'); //text, textbox, select, multi-select, checkbox-boolean, tinymce
-            $table->text('description');
+            $table->string('value')->nullable();;
+            $table->string('system_default')->nullable();;
+            $table->string('setting_type'); //text, textbox, select, multi-select, checkbox-boolean, tinymce
+            $table->text('available_options')->nullable();;
+            $table->string('available_options_data_type')->nullable();
+            $table->text('description')->nullable();;
             $table->timestamps();
             $table->softDeletes();
         });

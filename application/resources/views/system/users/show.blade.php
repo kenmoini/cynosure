@@ -35,9 +35,17 @@
                   </p>
                   <p class="meta">
                       <strong>Email: </strong> {{ $usershow->email }}<br />
+                  </p>
+                  <p class="meta">
                       <strong>Groups: </strong>
                       @foreach ($usershow->groups as $group)
                         <span class="badge badge-primary m-1">{{ $group->name }}</span>
+                      @endforeach
+                  </p>
+                  <p class="meta">
+                      <strong>Roles: </strong>
+                      @foreach ($usershow->roles as $role)
+                        <span class="badge badge-secondary m-1">{{ $role->name }}</span>
                       @endforeach
                   </p>
                 </div>

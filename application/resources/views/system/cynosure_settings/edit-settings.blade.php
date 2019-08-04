@@ -34,17 +34,52 @@
                                 @csrf
                                 @php $c = true; @endphp
                                 @foreach ($settings as $setting)
-
-                                <div class="form-user{{ (($c = !$c)?' odd':'') }}">
+                                @if($setting->configurable)
+                                <div class="cynosure-setting-row form-user{{ (($c = !$c)?' odd-future-row':'') }}">
                                     <div class="row">
                                         <div class="col-sm-12 col-md-6">
                                             <label for="{{ $setting->id }}">{{ $setting->name }}:</label>
                                         </div>
                                         <div class="col-sm-12-col-md-6">
+                                            @switch($setting->setting_type)
 
+                                                @case('input-text')
+                                                <div class="form-user">
+                                                    <input type="text" class="form-control" id="setting-{{ $setting->id }}" name="setting-{{ $setting->id }}" value="{{ $setting->value }}" /><br />
+                                                    <small>System Default: <em>{{ $setting->system_default }}</em></small>
+                                                </div>
+                                                @break
+
+                                                @case('input-textarea')
+                                                <div class="form-user">
+                                                    <textarea id="setting-{{ $setting->id }}" name="setting-{{ $setting->id }}">{{ $setting->value }}</textarea>
+                                                    <small>System Default: <em>{{ $setting->system_default }}</em></small>
+                                                </div>
+                                                @break
+
+                                                @case('select')
+                                                <div class="form-user">
+                                                    <select class="form-control" id="setting-{{ $setting->id }}" name="setting-{{ $setting->id }}">
+                                                        @switch($setting->available_options_data_type)
+                                                            @case('json')
+                                                                @foreach(json_decode($setting->available_options)[0] as $k => $v)
+                                                                    <option value="{{ $k }}">{{ $v }}</option>
+                                                                @endforeach
+                                                            @break
+                                                        @endswitch
+                                                    </select>
+                                                    <small>System Default: <em>{{ $setting->system_default }}</em></small>
+                                                </div>
+                                                @break
+
+                                                @case('int-boolean')
+                                                @break
+
+                                            @endswitch
                                         </div>
                                     </div>
                                 </div>
+                                @endif
                                 @endforeach
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </form>

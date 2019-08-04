@@ -37,6 +37,12 @@
     <link href="/vendor/fontawesome-free-5.9.0-web/css/all.min.css" rel="stylesheet" />
 
     <style type="text/css">
+    p.category, p.card-category {
+        font-size:1rem;
+    }
+    .card label {
+        font-size:1rem;
+    }
     .clusterSwitcher div.dropdown, .namespaceSwitcher div.dropdown {
         width:100%;
     }
@@ -62,6 +68,15 @@
     .form-control {
         border-radius:4px;
         border:1px solid #aeaeae;
+    }
+    .odd-future-row {
+        background-color: rgba(0,0,0,0.025);
+    }
+    .cynosure-setting-row {
+        padding:1rem;
+    }
+    .cynosure-setting-row:hover {
+        background-color: rgba(0,0,0,0.05);
     }
     </style>
 

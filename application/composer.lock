@@ -4,8 +4,66 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3ece352e4a969d67110d77283b1fb94c",
+    "content-hash": "8578b6a99dbe88c2d23c8de6956a92f3",
     "packages": [
+        {
+            "name": "beyondcode/laravel-credentials",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beyondcode/laravel-credentials.git",
+                "reference": "9ac30f57f7a61f01bfc4da21dcbc6980c2d72db6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beyondcode/laravel-credentials/zipball/9ac30f57f7a61f01bfc4da21dcbc6980c2d72db6",
+                "reference": "9ac30f57f7a61f01bfc4da21dcbc6980c2d72db6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/encryption": ">=5.6",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.6",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BeyondCode\\Credentials\\CredentialsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BeyondCode\\Credentials\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "marcel@beyondco.de",
+                    "homepage": "https://beyondcode.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Store and access encrypted credentials in your Laravel application.",
+            "homepage": "https://github.com/beyondcode/laravel-credentials",
+            "keywords": [
+                "Laravel-Credentials",
+                "beyondcode"
+            ],
+            "time": "2018-09-18T20:09:11+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",

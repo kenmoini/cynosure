@@ -13,30 +13,27 @@
 
 Route::get('/', function () {
     return App::call('App\Http\Controllers\Controller@authCheck');
-    //return view('welcome');
 });
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-
-Route::name('admin.')->prefix('admin')->group(function () {
+Route::name('admin.')->prefix('admin')->middleware('auth')->group(function () {
 
     Route::get('dashboard', function() {
         return view('app');
-    })->name('dashboard')->middleware('auth');
+    })->name('dashboard');
 
     Route::get('resources', function() {
         return view('app');
-    })->name('resources')->middleware('auth');
+    })->name('resources');
 
     Route::get('compass/panel', function() {
         return view('app');
-    })->name('compass.panel')->middleware('auth');
+    })->name('compass.panel');
 
-    Route::get('cynosure/configuration', 'CynosureConfigurationController@index')->name('cynosure.configuration')->middleware('auth');
+    Route::get('cynosure/configuration', 'CynosureConfigurationController@index')->name('cynosure.configuration');
 
-    //
+    //Core Resources
     Route::resource('roles', 'RoleController');
     Route::resource('users', 'UserController');
     Route::resource('clusters', 'ClusterController');
